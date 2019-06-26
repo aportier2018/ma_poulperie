@@ -1,0 +1,38 @@
+{% extends 'baseJeuAdmin.html.twig' %}
+
+{% block title %}Tableau des "niveaux"{% endblock %}
+
+{% block body %}
+
+    <div class="jeuAdmin">
+        <h2 class="text-center">Tableau des "niveaux"</h2>
+        <p class="mb-2 text-center"><a href="{{ path('jeuAdminNiveauNew') }}" class="btn btn-success">Ajouter un niveau</a></p>
+            <table id="table_JeuNiveau" class=" table table-hover bg-light">
+                <thead>
+                    <tr>
+                        <th class="text-center">Niveau</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Modification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in niveaux %}
+                        <tr>
+                            <td class="text-center">
+                                {{ x.niveau }}
+                            </td>
+                            <td class="text-center">
+                                {{ x.description }}
+                            </td>
+                            <td class="text-center">
+                                <a href= "{{ path('jeuAdminNiveauEdit', {'id': x.id}) }}" class="btn btn-primary">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+{% endblock %}

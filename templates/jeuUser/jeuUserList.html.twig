@@ -1,0 +1,40 @@
+{% extends 'baseJeuUser.html.twig' %}
+
+{% block title %}Liste des jeux{% endblock %}
+
+{% block body %}
+<div class="jeu">
+    <h2 class="text-center">Liste de nos jeux</h2>
+        <table id="table_JeuUser" class=" table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Jaquette</th>
+                    <th class="text-center">Type de jeu</th>
+                    <th class="text-center">nombre de joueurs</th>
+                    <th class="text-center">Durée</th>
+                    <th class="text-center">Age</th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for jeu in jeux %}
+                    <tr>
+                        <td class="text-center">{{ jeu.nom }}</td>
+                        <td class="text-center"><img src="{{ jeu.jaquette}}" alt="jaquette"></td>
+                        <td class="text-center">Type de jeu</td>
+                        <td class="text-center">de {{ jeu.nbjoueurmin }} à {{ jeu.nbjoueurmax }} joueurs</td>
+                        <td class="text-center">{{ jeu.duree.duree }}</td>
+                        <td class="text-center">{{ jeu.agemin}} - {{ jeu.agemax }} ans</td>
+                        <td class=""><a href="{{ path('jeuUserDescription', {'id': jeu.id}) }}" class="btn button-purple">En savoir plus</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+</div>
+
+
+
+    
+{% endblock %}

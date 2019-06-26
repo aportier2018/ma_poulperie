@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title> Ma Poulperie - {% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" type="image/png" href="/image/logo.png" />
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Play|Vollkorn" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css'>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/app.css">
+        <div id="fb-root"></div>        
+    </head>
+
+    <body>
+         {% include "include/headerAdmin.html.twig" %}
+
+        {% block body %}
+        {% endblock %}
+
+
+        {% block javascripts %}
+            
+            <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.3"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            <script type="text/javascript" charset="utf8" src= 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js'></script>
+            <script type="text/javascript" charset="utf8" src='https://code.jquery.com/jquery-3.3.1.js'></script>
+            <script type="text/javascript" charset="utf8" src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+            <script type="text/javascript" charset="utf8" src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js'></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src='/js/tableadmin.js'></script>
+        {% endblock %}
+
+    </body>
+</html>

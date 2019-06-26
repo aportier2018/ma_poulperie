@@ -1,0 +1,33 @@
+{% extends 'baseJeuAdmin.html.twig' %}
+{% form_theme formNiveau 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <div class="jeu">
+    <button class="btn btn-secondary">
+            <a href="{{ path('jeuAdminNiveau') }}">Retour à la liste des niveaux</a>
+        </button>
+        {{ form_start(formNiveau) }}
+        <h3> Voulez-vous
+            {% if editMode %}
+                modifier le niveau ?
+            {% else %}
+                enregistrer un nouveau niveau ?
+            {% endif %}</h3>
+        <div class="container formulaire bg-light">
+
+
+        {{ form_row(formNiveau.niveau,{'label' : "Titre du niveau", 'attr' : {'placeholder' : "titre du niveau"}} ) }} 
+        {{ form_row(formNiveau.description,{'label' : "Description du niveau", 'attr' : {'placeholder' : "description"}} ) }}
+
+        <button type="submit" class="btn btn-primary">
+            {% if editMode %}
+                Enregistrer les modifications
+            {% else %}
+                Ajouter ce niveau
+            {% endif %}
+            </button>
+
+        {{ form_end(formNiveau) }}
+        </div>
+    </div>
+{% endblock %}

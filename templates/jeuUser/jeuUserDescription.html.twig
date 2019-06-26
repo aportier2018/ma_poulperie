@@ -1,0 +1,30 @@
+{% extends 'baseJeuUser.html.twig' %}
+
+{% block title %}{{ jeu.nom }}{% endblock %}
+
+{% block body %}
+<div class="jeu">
+    <p >
+        <a class="btn btn-secondary" href="{{ path('jeuUserList') }}">Retour à la liste des jeux</a>
+    </p>
+
+    <h2 class="text-center">Le jeu : "{{ jeu.nom }}"</h2>
+    <div class="descriptif">
+        <p class = "jaquette text-center"><img src="{{ jeu.jaquette }}" alt="jaquette du jeu"></p>
+        <p class="resume"><h3>Résumé</h3>{{ jeu.resume }}</p>
+        <p class="regle"><h3>Règles du jeu</h3>{{ jeu.regle }}</p>
+        <p class="age"><h3>Age requis</h3>{{ jeu.agemin }} - {{ jeu.agemax }} ans</p>
+        <p class="type"><h3>Type de jeu</h3></p>
+        <p class="nbjoueur"><h3>Nombre de joueurs</h3>De {{ jeu.nbjoueurmin }} à {{ jeu.nbjoueurmax }} joueurs</p>
+        <p class="duree"><h3>Durée du jeu</h3>{{ jeu.duree.duree }} : {{ jeu.duree.description }}</p>
+        <p class="duree"><h3>Niveau</h3>{{ jeu.niveau.niveau }} : {{ jeu.niveau.description }}</p>
+        <p class="critere"><h3>Critères</h3>{{ jeu.critere }}</p>
+        <p class="prixConcours"><h3>Primé au(x) prix concours</h3>{{jeu.prixconcours }}</p>
+        <p class="ambiance"><h3>Ambiance</h3>{{ jeu.ambiance }}</p>
+    </div>
+    <p >
+        <a class="btn btn-secondary" href="{{ path('jeuUserList') }}">Retour à la liste des jeux</a>
+    </p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'baseJeuUser.html.twig' %}
+
+{% block title %} Inscription{% endblock %}
+
+{% block body %}
+    <div class="container jeu">
+        
+        <div class="row">
+
+            <div class="col-md-3">&nbsp;</div>   
+            <div class="col-6">
+                <h2>Inscrivez-vous</h2>
+                {{ form_start(formInscription) }}
+                {{ form_row(formInscription.userNom,{'label' : "Nom", 'attr' : {'placeholder' : "Votre nom"}} ) }}
+                {{ form_row(formInscription.userPrenom,{'label' : "Prénom", 'attr' : {'placeholder' : "Votre prénom"}} ) }}
+                {{ form_row(formInscription.email,{'label' : "Votre adresse mail", 'attr' : {'placeholder' : "Email"}} ) }}
+                {{ form_row(formInscription.hash,{'label' : "Mot de passe", 'attr' : {'placeholder' : "Un mot de passe avec 8 lettres au minimum"}} ) }}
+                 {{ form_row(formInscription.confirmHash,{'label' : "Confirmer le mot de passe", 'attr' : {'placeholder' : "Réécrivez votre mot de passe"}} ) }}
+                <button type="submit" class="btn btn-success">Inscription</button>
+            {{ form_end(formInscription) }}
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'baseJeuAdmin.html.twig' %}
+{% form_theme formJeu 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <div class="jeu">
+        <button class="btn btn-secondary">
+            <a href="{{ path('jeuAdminList') }}">Retour à la liste des jeux</a>
+        </button>
+        <h3> Voulez-vous
+            {% if editMode %}
+                modifier le jeu ?
+            {% else %}
+                enregistrer un nouveau jeu ?
+            {% endif %}</h3>
+            
+        <div class="container-fluid mt-4">
+
+        {{ form_start(formJeu) }}
+            <div class="row bg-light">
+                <div class="col-6">
+                    {{ form_row(formJeu.nom,{'label' : "Titre du jeu", 'attr' : {'placeholder' : "titre du jeu"}} ) }}
+                    {{ form_row(formJeu.jaquette,{'label' : "Jaquette du jeu", 'attr' : {'placeholder' : "Image de la boite du jeu"}} ) }}
+                    {{ form_row(formJeu.resume,{'label' : "Résumé du jeu", 'attr' : {'placeholder' : "résumé du jeu"}} ) }}
+                    {{ form_row(formJeu.regle,{'label' : "Règles du jeu", 'attr' : {'placeholder' : "règles du jeu"}} ) }}
+                </div>
+                <div class="col-3">
+                    {{ form_row(formJeu.niveau,{'label' : "Niveau du jeu", 'attr' : {'placeholder' : "niveau du jeu"}} ) }}
+                    {{ form_row(formJeu.duree,{'label' : "Durée du jeu", 'attr' : {'placeholder' : "durée du jeu"}} ) }}
+                    {{ form_row(formJeu.agemin,{'label' : "Âge minimum", 'attr' : {'placeholder' : "âge minimum pour jouer"}} ) }}
+                    {{ form_row(formJeu.agemax,{'label' : "Âge maximum", 'attr' : {'placeholder' : "âge maximum pour jouer"}} ) }}
+                    {{ form_row(formJeu.nbjoueurmin,{'label' : "Nombre minimum de joueurs", 'attr' : {'placeholder' : "nombre minimum de joueurs"}} ) }}
+                    {{ form_row(formJeu.nbjoueurmax,{'label' : "Nombre maximum de joueurs", 'attr' : {'placeholder' : "nombre maximum de joueurs"}} ) }}
+                </div>
+                <div class="col-3">
+                    {{ form_row(formJeu.critere,{'label' : "Critères", 'attr' : {'placeholder' : "critères"}} ) }}
+                    {{ form_row(formJeu.prixconcours,{'label' : "Prix concours", 'attr' : {'placeholder' : "prix reçu"}} ) }}
+                    {{ form_row(formJeu.ambiance,{'label' : "Ambiances", 'attr' : {'placeholder' : "ambiance"}} ) }}
+                <button type="submit" class="btn btn-primary">
+                    {% if editMode %}
+                        Enregistrer les modifications
+                    {% else %}
+                        Ajouter le nouveau jeu
+                    {% endif %}
+                    </button>
+                </div>
+            </div>
+        {{ form_end(formJeu) }}
+        </div>
+    </div>
+{% endblock %}

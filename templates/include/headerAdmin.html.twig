@@ -1,0 +1,37 @@
+<header class="headerAdmin"> 
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <img class="nav-logo" src="/image/logo.png" alt="logo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarColor03">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('jeuAdminList') }}">Liste des jeux</a>
+                {# </li>
+                 <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('jeuAdminNew') }}">Entrer un nouveau jeu</a>
+                </li> #}
+                {# <li class="nav-item ">
+                    <a class="nav-link" href="#">Les types de jeu</a>
+                </li> #}
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('jeuAdminDuree') }}">Tableau "durée"</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ path('jeuAdminNiveau') }}">Tableau "niveau"</a>
+                </li>
+                 <li class="nav-item active-nav ">
+                    <a class="nav-link" href="{{ path('jeuUserList') }}" target="_blank">voir le site<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{ path('admin_logout' )}}" class="navlink"> Déconnexion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</header>

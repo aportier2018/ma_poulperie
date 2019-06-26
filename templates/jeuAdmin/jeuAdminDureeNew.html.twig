@@ -1,0 +1,33 @@
+{% extends 'baseJeuAdmin.html.twig' %}
+{% form_theme formDuree 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <div class="jeu">
+    <button class="btn btn-secondary">
+            <a href="{{ path('jeuAdminDuree') }}">Retour à la liste des durées</a>
+        </button>
+        <h3> 
+            {% if editMode %}
+                Modification de la durée.
+            {% else %}
+                Enregistrement d'une nouvelle durée.
+            {% endif %}</h3>
+        <div class=" container formulaire bg-light">
+
+        {{ form_start(formDuree) }}
+
+        {{ form_row(formDuree.duree,{'label' : "Titre de la durée", 'attr' : {'placeholder' : "titre de la durée"}} ) }} 
+        {{ form_row(formDuree.description,{'label' : "Description de la durée", 'attr' : {'placeholder' : "description"}} ) }}
+
+        <button type="submit" class="btn btn-primary">
+            {% if editMode %}
+                Enregistrer les modifications
+            {% else %}
+                Ajouter une nouvelle durée
+            {% endif %}
+            </button>
+
+        {{ form_end(formDuree) }}
+        </div>
+    </div>
+{% endblock %}

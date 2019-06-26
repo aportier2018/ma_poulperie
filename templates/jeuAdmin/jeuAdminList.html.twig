@@ -1,0 +1,63 @@
+{% extends 'baseJeuAdmin.html.twig' %}
+
+{% block title %}Liste des jeux{% endblock %}
+
+{% block body %}
+ 
+
+    <div class="jeuAdmin">
+        <h2 class="text-center">Liste des jeux</h2>
+            {% for label,messages in app.flashes %}
+                <div class="messageflash text-center mx-auto ">
+                    <div class="alert alert-{{ label }}">
+                        {% for message in messages %}
+                            <p>{{ message | raw }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            <p class="mb-2 text-center"><a href="{{ path('jeuAdminNew') }}" class="btn btn-success">Ajouter un jeu</a></p>
+            <table id="table_JeuAdmin" class=" table table-hover bg-light">
+                <thead>
+                    <tr>
+                        <th class="text-center">Nom</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Niveau</th>
+                        <th class="text-center">Durée</th>
+                        <th class="text-center">Modification</th>
+                        <th class="text-center">Suppression définitive<s/th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in jeux %}
+                        <tr>
+                            <td class="text-center">
+                                {{ x.nom }}
+                            </td>
+                            <td class="text-center">
+                                Type
+                            </td>
+                            <td class="text-center">
+                                {{ x.niveau.niveau }}
+                            </td>
+                            <td class="text-center">
+                                {{ x.duree.duree }}
+                            </td>
+
+                            <td class="text-center">
+                                <a href= "{{ path('jeuAdminEdit', {'id': x.id}) }}" class="btn btn-primary">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                            <td class="text-center">    
+                                <a href="{{ path('jeuAdminDelete', {'id': x.id}) }}" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+{% endblock %}

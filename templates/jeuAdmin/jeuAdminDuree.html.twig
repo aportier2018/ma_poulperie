@@ -1,0 +1,38 @@
+{% extends 'baseJeuAdmin.html.twig' %}
+
+{% block title %}Tableau des "durées"{% endblock %}
+
+{% block body %}
+
+    <div class="jeuAdmin">
+        <h2 class="text-center">Tableau des "durées"</h2>
+        <p class="mb-2 text-center"><a href="{{ path('jeuAdminDureeNew') }}" class="btn btn-success">Ajouter une durée de jeu</a></p>
+            <table id="table_JeuDuree" class=" table table-hover bg-light">
+                <thead>
+                    <tr>
+                        <th class="text-center">Nom</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Modification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in durees %}
+                        <tr>
+                            <td class="text-center">
+                                {{ x.duree }}
+                            </td>
+                            <td class="text-center">
+                                {{ x.description }}
+                            </td>
+                            <td class="text-center">
+                                <a href= "{{ path('jeuAdminDureeEdit', {'id': x.id}) }}" class="btn btn-primary">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+{% endblock %}
